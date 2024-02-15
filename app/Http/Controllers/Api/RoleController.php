@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Resources\Services;
-use App\Models\Service;
-use Intervention\Image\Facades\Image;
-
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +16,8 @@ class ServiceController extends Controller
     public function index()
     {
 
-        $data = Services::collection(Service::paginate(10));
+
+        $data = Role::with('permissions')->get();
 
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
 
@@ -45,9 +43,8 @@ class ServiceController extends Controller
     {
 
         $rule = [
-            'image' => 'nullable', 'mimes:jpg,jpeg,png',
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|unique:roles',
+            'description' => 'nullable',
 
         ];
 
@@ -64,17 +61,12 @@ class ServiceController extends Controller
         } else {
 
 
-            $data = Service::create($request->except('image'));
-//            if ($request->hasFile('image')) {
-//                $thumbnail = $request->file('image');
-//                $destinationPath = 'images/services/';
-//                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//                $thumbnail->move($destinationPath, $filename);
-//                $data->image = $filename;
-//                $data->save();
-//            }
-            if ($request->hasFile('image')) {
-                UploadImage2('images/services/', 'image', $data, $request->file('image'));
+            $data = Role::create($request->except('permissions'));
+
+            if ($request->has('permissions')) {
+                $all_permissions = array_merge($request->permissions, []);
+                $data->syncPermissions($all_permissions);
+
             }
 
             return $this->respondSuccess($data, trans('message.User register successfully.'));
@@ -91,8 +83,9 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        $data =new Services(Service::find($id));
+        $data = Role::with('permissions')->find($id);
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
+
     }
 
     /**
@@ -115,11 +108,10 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Service::find($id);
+        $data = Role::find($id);
         $rule = [
-            'image' => 'nullable', 'mimes:jpg,jpeg,png',
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|unique:roles',
+            'description' => 'nullable',
 
         ];
 
@@ -136,41 +128,33 @@ class ServiceController extends Controller
         } else {
 
 
-            $data->update($request->except('image'));
-//            if ($request->hasFile('image')) {
-//                $thumbnail = $request->file('image');
-//                $destinationPath = 'images/services/';
-//                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//                $thumbnail->move($destinationPath, $filename);
-//                $data->image = $filename;
-//                $data->save();
-//            }
+            $data->update($request->except('permissions'));
 
-            if ($request->hasFile('image')) {
-                UploadImage2('images/services/', 'image', $data, $request->file('image'));
+            if ($request->has('permissions')) {
+                $all_permissions = array_merge($request->permissions, []);
+                $data->syncPermissions($all_permissions);
+
             }
-
         }
 
-            return $this->respondSuccess($data, trans('message.User updated successfully'));
-        }
-
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param int $id
-         * @return \Illuminate\Http\Response
-         */
-        public
-        function destroy($id)
-        {
-            $data = Service::find($id);
-
-            $data->delete();
-
-            return $this->respondSuccess(null, __('data deleted successfully.'));
-
-
-
-        }
+        return $this->respondSuccess($data, trans('message.User updated successfully'));
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function destroy($id)
+    {
+        $data = Role::find($id);
+
+        $data->delete();
+
+        return $this->respondSuccess(null, __('data deleted successfully.'));
+
+
+    }
+}

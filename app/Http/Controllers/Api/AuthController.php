@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Freq_question;
+use App\Models\Permission;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\AuthenticationException;
@@ -20,42 +19,30 @@ use DB;
 class AuthController extends Controller
 {
 
-    public function freqquestion(Request $request)
-    {
 
+    public function listofpermission(){
 
-        $questions = Freq_question::get()->map(function ($question) {
-            $question->answer = preg_replace("/\r|\n/", "", strip_tags($question->answer)) ?? '';
-            return $question;
-        });
+      $permissions=Permission::get();
 
-        if (count($questions)) {
+        return $this->respondSuccess($permissions, trans('message.data retrieved successfully.'));
 
-            return $this->respondSuccess($questions, trans('message.data retrieved successfully.'));
-
-
-        } else {
-            return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
-
-        }
 
     }
 
     public function updateProfile(Request $request)
     {
-        $user = Auth::user();
+        $id = Auth::id() ?? 1;
 
+        $user = User::find($id);
         $rule = [
-            // 'email' => 'max:254|unique:email|nullable',
-            // 'email' => ['max:254|nullable',Rule::unique('users')->ignore($user->id)],
+
             'email' => "nullable|email|max:254|unique:users,email," . $user->id . ",id",
             'image' => 'nullable', 'mimes:jpg,jpeg,png',
             'firstname' => 'nullable',
             'lastname' => 'nullable',
-            // 'password' => 'nullable|min:6',
-            // 'c_password' => 'nullable|same:password',
-            // 'country_code' => 'required_with:phone',
-            // 'phone' => 'required_with:country_code|min:9|unique:users',
+            'password' => 'nullable|min:6',
+            'c_password' => 'nullable|same:password',
+
         ];
 
         $customMessages = [
@@ -75,7 +62,7 @@ class AuthController extends Controller
 
         } else {
 
-            $user = User::findorfail(Auth::id());
+            $user = User::findorfail($id);
 
             if ($request->hasFile('image')) {
                 UploadImage2('images/users/', 'image', $user, $request->file('image'));
@@ -83,12 +70,13 @@ class AuthController extends Controller
             $user->firstname = isset($request->firstname) ? $request->firstname : $user->firstname;
             $user->lastname = isset($request->lastname) ? $request->lastname : $user->lastname;
             $user->email = isset($request->email) ? $request->email : $user->email;
-            // $user->password = Hash::make($request['password']) ?? '';
-            // $user->active =1;
+            if (!empty($request->password)) {
+                $user->password = bcrypt($request->password);
+
+
+            }
             $user->save();
-            // $success['token'] = $user->createToken('MyApp')->accessToken;
             $user->image = asset('images/users/') . '/' . $user->image;
-            // $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code','image']);
             $users = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code', 'image']);
 
             return $this->respondSuccess($users, trans('message.User updated successfully'));
@@ -291,28 +279,6 @@ class AuthController extends Controller
         }
     }
 
-    public
-    function guest(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'device_token' => 'required'
-
-        ]);
-
-        if ($validator->fails()) {
-            return $this->respondError('Validation Error.', $validator->errors(), 400);
-        } else {
-            $input = $request->all();
-            $input['isguest'] = 1;
-            $user = User::create($input);
-            $user->active = 1;
-            $user->token = $user->createToken('MyApp')->accessToken;
-            $user->save();
-            $success['token'] = $user->createToken('MyApp')->accessToken;
-
-            return $this->respondSuccess($success, trans('message.guest successfully.'));
-        }
-    }
 
     public
     function activateRegister(Request $request)

@@ -5,22 +5,6 @@ use Intervention\Image\Facades\Image;
 function UploadImage($path, $image, $model, $request)
 {
 
-    // $img = $request->file('profile_image');
-    // $image = $request->profile_image->extension();
-    // $imageName = uniqid() . '.' . $image;
-    // $image_resize = Image::make($img->getRealPath());
-    // $image_resize->resize(636,852);        
-    // $path = 'uploads/' . $imageName;
-    // $image_resize->save($path);
-    // $imageUri = 'uploads/' . $imageName; 
-    // $path = storage_path() . '/app/public/uploads/users/' . Hashids::encode($User->id) . '/' . $file_temp_name;
-    // $img = Image::make($file)->fit(1024);
-    // $img->save($path);
-
-    // $image = Image::make($filename);
-    // $image->resize(250,125, function($constraint){
-    //     $constraint->aspectRatio();
-    // })->save($filename);
 
     $thumbnail = $request;
     $destinationPath = $path;
@@ -131,19 +115,19 @@ if (!function_exists('send_sms_code')) {
 
 if (!function_exists('send_push_notification')) {
     function send_push_notification($type ,$book_id,$token,$title,$description){
-        $serverkey = 'AAAAFN778j8:APA91bFt1GglZf07Po-5ccwa8tYHuaIz0ymvDZCeDKJ2bxpaNrj2eM1TbON3_EdkhjkcH9IhKsaTOUv0mHSXHWQ-O2t61J6OwgoBmzoftKS-1uKBzTmwlGs0kkGClVYcP0TTXtFArxIT';// this is a Firebase server key 
+        $serverkey = 'AAAAFN778j8:APA91bFt1GglZf07Po-5ccwa8tYHuaIz0ymvDZCeDKJ2bxpaNrj2eM1TbON3_EdkhjkcH9IhKsaTOUv0mHSXHWQ-O2t61J6OwgoBmzoftKS-1uKBzTmwlGs0kkGClVYcP0TTXtFArxIT';// this is a Firebase server key
         $data = array(
                     'to' => $token,
-                    'notification' => 
+                    'notification' =>
                             array(
                             'body' => $description,
                             'title' => $title),
                             "data"=> array(
                                     "book_id"=> $book_id,
                                     "type" => $type
-                                
+
                                     ));
-                            
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,"https://fcm.googleapis.com/fcm/send");
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -154,6 +138,6 @@ if (!function_exists('send_push_notification')) {
         $result=json_decode($output);
         curl_close ($ch);
     }
-} 
+}
 
 ?>

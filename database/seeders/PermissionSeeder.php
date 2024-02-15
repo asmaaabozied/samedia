@@ -15,8 +15,8 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        $models = ['users','settings','roles',' message','contacts','countries','cities','questions','problems','mediators','advertising','reviewElements','categories','cars','bookings','car_comments','car_reviews','aquarcategories','areas','services_aqars','aqars','aquarbooking','aqar_comments','aqar_reviews',
-        'place_categories','places','place_comments','place_reviews','ads_status','booking_status','commissions','notifications','balances','invoices','deposits','sections'
+        $models = ['users','settings','roles','contacts',
+    'sliders','teams','projects','services'
         ];
 
 

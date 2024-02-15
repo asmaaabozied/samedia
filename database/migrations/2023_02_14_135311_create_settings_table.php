@@ -30,6 +30,10 @@ return new class extends Migration
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('youtube')->nullable();
+            $table->string('phone_one')->nullable();
+            $table->string('phone_two')->nullable();
+            $table->string('google_play')->nullable();
+            $table->string('play_store')->nullable();
             $table->string('snapchat')->nullable();
             $table->time('time_difference')->nullable();
             $table->enum('closing',['open','closed']);
