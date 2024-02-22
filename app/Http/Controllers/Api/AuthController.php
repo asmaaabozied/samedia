@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\Langs;
+use App\Models\Lang;
 use App\Models\Permission;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
@@ -20,12 +22,62 @@ class AuthController extends Controller
 {
 
 
-    public function listofpermission(){
+    public function listofpermission()
+    {
 
-      $permissions=Permission::get();
+        $permissions = Permission::get();
 
         return $this->respondSuccess($permissions, trans('message.data retrieved successfully.'));
 
+
+    }
+
+    public function listoflanguage(Request $request)
+    {
+
+        if ($request->type) {
+            $data = Langs::collection(Lang::where('page_type', '=', $request->type)->get());
+            return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
+
+        } else {
+
+            return $this->respondSuccess(null, trans('message.Data not found.'));
+
+
+        }
+
+    }
+
+
+    public function updatelanguage(Request $request)
+    {
+//return $request['languages'];
+        if ($request['languages']) {
+
+
+            foreach ($request['languages'] as $key => $value) {
+
+                $lang = Lang::where('id', '=', $value['id'])->first();
+
+
+                $lang->update([
+                    'value' => $value['name'] ?? '',
+                    'item_name' => $value['item_name'] ?? '',
+                    'item_id' => $value['item_id'] ?? '' ,
+                    'page_type' => $value['page_type'] ?? '',
+
+
+                ]);
+
+            }
+
+            return $this->respondSuccess($request['languages'], trans('message.User updated successfully'));
+        } else {
+
+            return $this->respondSuccess(null, trans('message.Data not found.'));
+
+
+        }
 
     }
 

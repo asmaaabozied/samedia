@@ -13,7 +13,7 @@ return [
     'changepassword'=>'تغير كلمه المرور',
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'Do you want to cancel your reservation?'=>'هل تريد الغاء حجزك؟',
-    'home' => 'الرئيسية',
+    'home' => 'login',
     'Search for your favorite country'=>'ابحث عن دولتك المفضلة',
     'Tell us your evaluation of the Aquar' => 'اخبرنا بتقيمك عن العقار',
     'Write your entire experience' => 'اكتب تجربتك كاملة',

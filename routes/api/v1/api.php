@@ -14,6 +14,10 @@ Route::get('/listofpermission', 'App\Http\Controllers\Api\AuthController@listofp
 Route::delete('/deletecontact/{id}', 'App\Http\Controllers\Api\ContactUsController@deletecontact');
 Route::post('/updateProfile', 'App\Http\Controllers\Api\AuthController@updateProfile');
 
+
+Route::get('/listoflanguage', 'App\Http\Controllers\Api\AuthController@listoflanguage');
+Route::put('/updatelanguage', 'App\Http\Controllers\Api\AuthController@updatelanguage');
+
 // end of new website
 
 

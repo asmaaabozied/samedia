@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            LangSeeder::class,
             PermissionSeeder::class,
             SettingSeeder::class
 
