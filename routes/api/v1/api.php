@@ -33,6 +33,7 @@ Route::apiResource('services', 'App\Http\Controllers\Api\ServiceController');
 Route::apiResource('teams', 'App\Http\Controllers\Api\TeamController');
 Route::apiResource('projects', 'App\Http\Controllers\Api\ProjectController');
 Route::apiResource('roles', 'App\Http\Controllers\Api\RoleController');
+Route::apiResource('languages', 'App\Http\Controllers\Api\LanguageController');
 
 
 Route::group(['middleware' => 'auth:api'], function () {
