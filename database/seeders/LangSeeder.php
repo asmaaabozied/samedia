@@ -65,6 +65,27 @@ class LangSeeder extends Seeder
             ['id' => 35, 'value' => json_encode(['ar' => 'جولات الفيديو السينمائية', 'en' => 'Cinematic Video Tours']), 'item_name' => 'Cinematic', 'item_id' => 35, 'page_type' => 'Cinematic'],
             ['id' => 36, 'value' => json_encode(['ar' => 'التصوير الفوتوغرافي المتميز', 'en' => 'Premium Photography']), 'item_name' => 'Premium_Photography', 'item_id' => 36, 'page_type' => 'Premium_Photography'],
             ['id' => 37, 'value' => json_encode(['ar' => 'محفظة العمل', 'en' => 'Work Portfolio']), 'item_name' => 'Work_Portfolio', 'item_id' => 37, 'page_type' => 'Work_Portfolio'],
+            ['id' => 38, 'value' => json_encode(['ar' => 'محفظة ', 'en' => ' Portfolio']), 'item_name' => 'Portfolio', 'item_id' => 38, 'page_type' => 'Portfolio'],
+            ['id' => 39, 'value' => json_encode(['ar' => 'كتالوج العقارات 1 ', 'en' => ' Listing catalogue real esrate 1']), 'item_name' => 'header_Portfolio', 'item_id' => 39, 'page_type' => 'Portfolio'],
+            ['id' => 40, 'value' => json_encode(['ar' => 'يُستخدم بشكل شائع في مسابقة الطباعة الرسومية بسبب صناعة النشر لمعاينة النماذج المرئية الخفيفة ', 'en' => 'Commonly used in the graphic prit quis due publishing indust for previewing lightlyvisual mockups']), 'item_name' => 'description_Portfolio', 'item_id' => 40, 'page_type' => 'Portfolio'],
+            ['id' => 41, 'value' => json_encode(['ar' => 'كتالوج العقارات 2 ', 'en' => ' Listing catalogue real esrate 2']), 'item_name' => 'header2_Portfolio', 'item_id' => 41, 'page_type' => 'Portfolio'],
+
+            ['id' => 42, 'value' => json_encode(['ar' => 'بطاقة بريدية جذابة لـ Home Finder ', 'en' => ' Compelling Home Finder postcard']), 'item_name' => 'description_Portfolio', 'item_id' => 42, 'page_type' => 'Portfolio'],
+            ['id' => 43, 'value' => json_encode(['ar' => 'اتصل بنا اليوم للحصول على تصوير عقاري من الدرجة الأولى يسلط الضوء على الميزات الفريدة لممتلكاتك ويجذب المشترين المتحمسين', 'en' => ' Contact Us today for top- notch real estate photography that highlights the unique features of your property and attracts eager buyers']), 'item_name' => 'description2_Portfolio', 'item_id' => 43, 'page_type' => 'Portfolio'],
+
+
+            ['id' => 44, 'value' => json_encode(['ar' => 'محفظة ', 'en' => ' Portfolio']), 'item_name' => 'SitePortfolio', 'item_id' => 44, 'page_type' => 'Portfolio'],
+            ['id' => 45, 'value' => json_encode(['ar' => 'محفظة ', 'en' => ' Portfolio']), 'item_name' => 'SitePortfolio', 'item_id' => 45, 'page_type' => 'Portfolio'],
+            ['id' => 46, 'value' => json_encode(['ar' => 'نحن نضمن تقديم الخدمة التي تلبي احتياجاتك وتتجاوز توقعاتك ', 'en' => ' we ensure to delivers as service that meets your needs and exceeds your expections']), 'item_name' => 'title1SitePortfolio', 'item_id' => 46, 'page_type' => 'SitePortfolio'],
+            ['id' => 47, 'value' => json_encode(['ar' => 'تعزيز رائع لكل سعر المنزل والمبيعات', 'en' => ' exquistely enhance every home and sales price']), 'item_name' => 'title2SitePortfolio', 'item_id' => 47, 'page_type' => 'SitePortfolio'],
+            ['id' => 48, 'value' => json_encode(['ar' => 'دعنا نأخذك في رحلة تصوير استثنائية', 'en' => 'let us take you on an exceptional photography jounery']), 'item_name' => 'title3SitePortfolio', 'item_id' => 48, 'page_type' => 'SitePortfolio'],
+            ['id' => 49, 'value' => json_encode(['ar' => 'دعنا نأخذك في رحلة تصوير استثنائية', 'en' => 'let us take you on an exceptional photography jounery']), 'item_name' => 'descriptionSitePortfolio', 'item_id' => 49, 'page_type' => 'SitePortfolio'],
+            ['id' => 50, 'value' => json_encode(['ar' => 'دعنا نأخذك في رحلة تصوير استثنائية', 'en' => 'let us take you on an exceptional photography jounery']), 'item_name' => 'description2SitePortfolio', 'item_id' => 50, 'page_type' => 'SitePortfolio'],
+            ['id' => 51, 'value' => json_encode(['ar' => 'شريكك الإبداعي لهذه القائمة أو المشروع وما يليه', 'en' => 'your creative partner for this listing or project and the next']), 'item_name' => 'description3SitePortfolio', 'item_id' => 51, 'page_type' => 'SitePortfolio'],
+            ['id' => 52, 'value' => json_encode(['ar' => 'فنية استثنائية في كل صورة', 'en' => 'exceptional artistry in every photo']), 'item_name' => 'description4SitePortfolio', 'item_id' => 52, 'page_type' => 'SitePortfolio'],
+
+            ['id' => 53, 'value' => json_encode(['ar' => 'دعنا نأخذك في رحلة تصوير استثنائية', 'en' => 'let us take you on an exceptional photography jounery']), 'item_name' => 'description4SitePortfolio', 'item_id' => 53, 'page_type' => 'SitePortfolio'],
+
 
 
         ];
