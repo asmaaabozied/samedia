@@ -66,17 +66,17 @@ class SliderController extends Controller
 
 
             $data = Slider::create($request->except('image'));
-//            if ($request->hasFile('image')) {
-//                $thumbnail = $request->file('image');
-//                $destinationPath = 'images/sliders/';
-//                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//                $thumbnail->move($destinationPath, $filename);
-//                $data->image = $filename;
-//                $data->save();
-//            }
             if ($request->hasFile('image')) {
-                UploadImage2('images/sliders/', 'image', $data, $request->file('image'));
+                $thumbnail = $request->file('image');
+                $destinationPath = 'images/sliders/';
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move($destinationPath, $filename);
+                $data->image = $filename;
+                $data->save();
             }
+//            if ($request->hasFile('image')) {
+//                UploadImage2('images/sliders/', 'image', $data, $request->file('image'));
+//            }
 
             return $this->respondSuccess($data, trans('message.User register successfully.'));
 
@@ -138,18 +138,18 @@ class SliderController extends Controller
 
 
             $data->update($request->except('image'));
-//            if ($request->hasFile('image')) {
-//                $thumbnail = $request->file('image');
-//                $destinationPath = 'images/sliders/';
-//                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//                $thumbnail->move($destinationPath, $filename);
-//                $data->image = $filename;
-//                $data->save();
-//            }
-
             if ($request->hasFile('image')) {
-                UploadImage2('images/sliders/', 'image', $data, $request->file('image'));
+                $thumbnail = $request->file('image');
+                $destinationPath = 'images/sliders/';
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move($destinationPath, $filename);
+                $data->image = $filename;
+                $data->save();
             }
+
+//            if ($request->hasFile('image')) {
+//                UploadImage2('images/sliders/', 'image', $data, $request->file('image'));
+//            }
 
         }
 

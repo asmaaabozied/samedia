@@ -43,6 +43,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+//        return $request;
 
         $rule = [
             'image' => 'nullable', 'mimes:jpg,jpeg,png',
@@ -65,17 +66,17 @@ class ProjectController extends Controller
 
 
             $data = Project::create($request->except('image'));
-//            if ($request->image) {
-//                $thumbnail = $request->file('image');
-//                $destinationPath = 'images/projects/';
-//                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//                $thumbnail->move($destinationPath, $filename);
-//                $data->image = $filename;
-//                $data->save();
-//            }
-            if ($request->hasFile('image')) {
-                UploadImage2('images/projects/', 'image', $data, $request->file('image'));
+            if ($request->image) {
+                $thumbnail = $request->file('image');
+                $destinationPath = 'images/projects/';
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move($destinationPath, $filename);
+                $data->image = $filename;
+                $data->save();
             }
+//            if ($request->hasFile('image')) {
+//                UploadImage2('images/projects/', 'image', $data, $request->file('image'));
+//            }
 
             return $this->respondSuccess($data, trans('message.User register successfully.'));
 
@@ -116,6 +117,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        return $request;
         $data = Project::find($id);
         $rule = [
             'image' => 'nullable', 'mimes:jpg,jpeg,png',
@@ -138,18 +140,18 @@ class ProjectController extends Controller
 
 
             $data->update($request->except('image'));
-//            if ($request->hasFile('image')) {
-//                $thumbnail = $request->file('image');
-//                $destinationPath = 'images/projects/';
-//                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//                $thumbnail->move($destinationPath, $filename);
-//                $data->image = $filename;
-//                $data->save();
-//            }
-
             if ($request->hasFile('image')) {
-                UploadImage2('images/projects/', 'image', $data, $request->file('image'));
+                $thumbnail = $request->file('image');
+                $destinationPath = 'images/projects/';
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move($destinationPath, $filename);
+                $data->image = $filename;
+                $data->save();
             }
+//
+//            if ($request->hasFile('image')) {
+//                UploadImage2('images/projects/', 'image', $data, $request->file('image'));
+//            }
         }
 
             return $this->respondSuccess($data, trans('message.User updated successfully'));

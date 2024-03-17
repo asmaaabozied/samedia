@@ -12,7 +12,8 @@ class Team extends Model
     protected $casts=[
 
         'name'=>'json',
-        'description'=>'json'
+        'description'=>'json',
+        'title'=>'json',
     ];
 
     protected $hidden=['updated_at'];

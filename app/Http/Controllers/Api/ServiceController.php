@@ -65,17 +65,17 @@ class ServiceController extends Controller
 
 
             $data = Service::create($request->except('image'));
-//            if ($request->hasFile('image')) {
-//                $thumbnail = $request->file('image');
-//                $destinationPath = 'images/services/';
-//                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//                $thumbnail->move($destinationPath, $filename);
-//                $data->image = $filename;
-//                $data->save();
-//            }
             if ($request->hasFile('image')) {
-                UploadImage2('images/services/', 'image', $data, $request->file('image'));
+                $thumbnail = $request->file('image');
+                $destinationPath = 'images/services/';
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move($destinationPath, $filename);
+                $data->image = $filename;
+                $data->save();
             }
+//            if ($request->hasFile('image')) {
+//                UploadImage2('images/services/', 'image', $data, $request->file('image'));
+//            }
 
             return $this->respondSuccess($data, trans('message.User register successfully.'));
 
@@ -137,18 +137,20 @@ class ServiceController extends Controller
 
 
             $data->update($request->except('image'));
-//            if ($request->hasFile('image')) {
-//                $thumbnail = $request->file('image');
-//                $destinationPath = 'images/services/';
-//                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//                $thumbnail->move($destinationPath, $filename);
-//                $data->image = $filename;
-//                $data->save();
-//            }
-
             if ($request->hasFile('image')) {
-                UploadImage2('images/services/', 'image', $data, $request->file('image'));
+                $thumbnail = $request->file('image');
+                $destinationPath = 'images/services/';
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move($destinationPath, $filename);
+                $data->image = $filename;
+                $data->save();
+
+
             }
+//
+//            if ($request->hasFile('image')) {
+//                UploadImage('images/services/', 'image', $data, $request->file('image'));
+//            }
 
         }
 

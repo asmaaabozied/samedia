@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Settings;
 use App\Models\Contact;
 use App\Models\Notification;
 use App\Models\Setting;
@@ -18,7 +19,7 @@ class ContactUsController extends Controller
     public function contacts()
     {
 
-        $settings = Setting::first();
+        $settings = new Settings(Setting::first());
 
         return $this->respondSuccess($settings, __('message.data retrieved successfully.'));
 
@@ -28,7 +29,7 @@ class ContactUsController extends Controller
     public function termandcondition()
     {
 
-        $settings = Setting::first()->only(['id', 'terms_conditions']);
+        $settings = new Settings(Setting::first());
 
         return $this->respondSuccess($settings, __('message.data retrieved successfully.'));
 
