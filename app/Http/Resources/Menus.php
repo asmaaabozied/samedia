@@ -4,12 +4,12 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Sliders extends JsonResource
+class Menus extends JsonResource
 {
     /**
-     * Transform the resource into an array.
+     * Transform the resource collection into an array.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
@@ -17,9 +17,9 @@ class Sliders extends JsonResource
         $header = $request->header('accept-language');
         return [
             'id' => $this->id,
-            'name_lan' => $this->name,
-            'description_lan' => $this->description,
-            "image" => asset('images/sliders') . "/" . $this->image,
+            'name' => $this->name,
+            'url' => $this->url,
+            'order' => $this->order,
             'created_at' => $this->created_at ?? ''
         ];
     }

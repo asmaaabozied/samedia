@@ -17,12 +17,12 @@ class SettingSeeder extends Seeder
     public function run()
     {
         Setting::create([
-            'terms_conditions' => fake()->text,
-            'description' => fake()->text,
+            'terms_conditions' =>  json_encode(['ar' => 'معلومات عنا', 'en' => 'About Us']),
+            'description' =>  json_encode(['ar' => 'معلومات عنا', 'en' => 'About Us']),
 //            'key_words' => fake()->text,
-            'closing_message' => fake()->text,
+            'closing_message' =>  json_encode(['ar' => 'معلومات عنا', 'en' => 'About Us']),
 
-            'website_address' => fake()->url(),
+            'website_address' =>  json_encode(['ar' => 'معلومات عنا', 'en' => 'About Us']),
             'website_link' => fake()->url(),
 
             'email' => fake()->email(),

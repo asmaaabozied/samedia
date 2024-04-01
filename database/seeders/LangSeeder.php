@@ -104,6 +104,32 @@ class LangSeeder extends Seeder
             ['id' => 68, 'value' => json_encode(['ar' => 'قم بإلقاء الضوء على علامتك التجارية بنقرة واحدة', 'en' => 'Illuminate Your Brand with a Single Click']), 'item_name' => 'home', 'item_id' => 68, 'page_type' => 'home'],
             ['id' => 69, 'value' => json_encode(['ar' => 'استراتيجيات تسويق قوية تحقق نتائج استثنائية، وتسويقًا بارعًا عبر الإنترنت يضعك في المقدمة. يمكن أن تساعدك خدمة التسويق عبر الإنترنت لدينا في إنشاء استراتيجية تسويق رقمية شاملة مصممة خصيصًا لتلبية احتياجات عملك. يمكننا مساعدتك في تحديد القنوات المناسبة للوصول إلى جمهورك المستهدف وإنشاء محتوى جذاب يلقى صدى لديهم.', 'en' => 'Powerful Marketing Strategies Delivering Exceptional Results, Masterful Online Marketing that Puts You at the Forefront. Our online marketing service can help you create a comprehensive digital marketing strategy that is tailored to your business needs. We can help you identify the right channels to reach your target audience and create engaging content that resonates with them.']), 'item_name' => 'home', 'item_id' => 69, 'page_type' => 'home'],
 
+            ['id' => 70, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 70, 'page_type' => 'services'],
+            ['id' => 71, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 71, 'page_type' => 'services'],
+            ['id' => 72, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 72, 'page_type' => 'services'],
+            ['id' => 73, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 73, 'page_type' => 'services'],
+            ['id' => 74, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 74, 'page_type' => 'services'],
+            ['id' => 75, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 75, 'page_type' => 'services'],
+            ['id' => 76, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 76, 'page_type' => 'services'],
+            ['id' => 77, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 77, 'page_type' => 'services'],
+            ['id' => 78, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 78, 'page_type' => 'services'],
+            ['id' => 79, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 79, 'page_type' => 'services'],
+            ['id' => 80, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 80, 'page_type' => 'services'],
+            ['id' => 81, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 81, 'page_type' => 'services'],
+            ['id' => 82, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 82, 'page_type' => 'services'],
+            ['id' => 83, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 83, 'page_type' => 'services'],
+            ['id' => 84, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 84, 'page_type' => 'services'],
+            ['id' => 85, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 85, 'page_type' => 'services'],
+            ['id' => 86, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 86, 'page_type' => 'services'],
+            ['id' => 87, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 87, 'page_type' => 'services'],
+            ['id' => 88, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 88, 'page_type' => 'services'],
+            ['id' => 89, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 89, 'page_type' => 'services'],
+            ['id' => 90, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 90, 'page_type' => 'services'],
+            ['id' => 91, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 91, 'page_type' => 'services'],
+            ['id' => 92, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 92, 'page_type' => 'services'],
+            ['id' => 93, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 93, 'page_type' => 'services'],
+
+
 
 
         ];

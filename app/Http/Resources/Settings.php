@@ -17,12 +17,10 @@ class Settings extends JsonResource
         $header = $request->header('accept-language');
         return [
             'id' => $this->id,
-
-            'terms_conditions' => $this->terms_conditions[$header],
-            'website_address' => $this->website_address[$header],
-            'description' => $this->description[$header],
-            'closing_message' => $this->closing_message[$header],
-
+            'terms_conditions' => json_decode($this->terms_conditions),
+            'website_address' => json_decode($this->website_address),
+            'description' => json_decode($this->description),
+            'closing_message' => json_decode($this->closing_message),
             'email' => $this->email,
             'website_link' => $this->website_link,
             'theme' => $this->theme,

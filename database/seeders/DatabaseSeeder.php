@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LangSeeder::class,
             PermissionSeeder::class,
-            SettingSeeder::class
-
-
+            SettingSeeder::class,
+            LanguagesSeeder::class,
+            MenuSeeder::class
         ]);
     }
 }

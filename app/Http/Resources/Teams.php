@@ -17,15 +17,11 @@ class Teams extends JsonResource
         $header = $request->header('accept-language');
         return [
             'id' => $this->id,
-            'name' => $this->name[$header],
-            'title' => $this->title[$header],
+            'title' => $this->title,
             'name_lan' => $this->name,
             'description_lan' => $this->description,
-            'description' => $this->description[$header],
             "image" => asset('images/teams') . "/" . $this->image,
             'created_at' => $this->created_at ?? ''
-
-
         ];
     }
 }

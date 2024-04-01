@@ -18,6 +18,11 @@ return new class extends Migration
             $table->json('name')->nullable();
             $table->json('description')->nullable();
             $table->string('image')->nullable();
+            $table->date('date_of_birth');
+            $table->json('client')->nullable();
+            $table->json('project_type')->nullable();
+            $table->json('duration')->nullable();
+            $table->string('live_url');
             $table->timestamps();
             $table->softDeletes();
         });

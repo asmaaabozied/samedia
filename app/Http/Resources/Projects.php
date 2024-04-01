@@ -17,14 +17,14 @@ class Projects extends JsonResource
         $header = $request->header('accept-language');
         return [
             'id' => $this->id,
-            'name' => $this->name[$header],
             'name_lan' => $this->name,
             'description_lan' => $this->description,
-            'description' => $this->description[$header],
             "image" => asset('images/projects') . "/" . $this->image,
+            'date_of_birth' => $this->date_of_birth,
+            'client' => $this->client,
+            'project_type' => $this->project_type,
+            'duration' => $this->duration,
             'created_at' => $this->created_at ?? ''
-
-
         ];
     }
 }

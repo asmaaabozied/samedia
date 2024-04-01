@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Project;
-use App\Models\ProjectImage;
+use App\Models\Menu;
 use Intervention\Image\Facades\Image;
-use App\Http\Resources\Projects;
+use App\Http\Resources\Menus;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +19,7 @@ class ProjectController extends Controller
     {
 
 
-        $data =Projects::collection(Project::paginate(10));
+        $data = Menus::collection(Menu::paginate(10));
 
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
 
@@ -44,13 +43,10 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-//        return $request;
-
         $rule = [
-            'image' => 'nullable', 'mimes:jpg,jpeg,png',
             'name' => 'required',
-            'description' => 'required',
-
+            'url' => 'required',
+            'order' => 'required',
         ];
 
         $customMessages = [
@@ -60,41 +56,12 @@ class ProjectController extends Controller
         $validator = validator()->make($request->all(), $rule, $customMessages);
 
         if ($validator->fails()) {
-
             return $this->respondError('Validation Error.', $validator->errors(), 400);
-
         } else {
-
-
-            $data = Project::create($request->except('image'));
-            if ($request->image) {
-                $thumbnail = $request->file('image');
-                $destinationPath = 'images/projects/';
-                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-                $thumbnail->move($destinationPath, $filename);
-                $data->image = $filename;
-                $data->save();
-            }
-
-            if ($request->images){
-                foreach($request->file('images') as $image){
-                $destinationPath = 'images/projects/';
-                $filename = time() . '.' . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $filename);
-                $data_image = new ProjectImage();
-                $data_image->url = $filename;
-                $data_image->save();
-                }
-
-            }
-//            if ($request->hasFile('image')) {
-//                UploadImage2('images/projects/', 'image', $data, $request->file('image'));
-//            }
-
+            $data = Menu::create($request->all());
             return $this->respondSuccess($data, trans('message.User register successfully.'));
-
-
         }
+
     }
 
     /**
@@ -105,7 +72,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $data =new Projects(Project::find($id));
+        $data =new Menus(Menu::find($id));
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
 
     }
@@ -130,13 +97,11 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        return $request;
-        $data = Project::find($id);
+        $data = Menu::find($id);
         $rule = [
-            'image' => 'nullable', 'mimes:jpg,jpeg,png',
             'name' => 'required',
-            'description' => 'required',
-
+            'url' => 'required',
+            'order' => 'required',
         ];
 
         $customMessages = [
@@ -146,25 +111,9 @@ class ProjectController extends Controller
         $validator = validator()->make($request->all(), $rule, $customMessages);
 
         if ($validator->fails()) {
-
             return $this->respondError('Validation Error.', $validator->errors(), 400);
-
         } else {
-
-
-            $data->update($request->except('image'));
-            if ($request->hasFile('image')) {
-                $thumbnail = $request->file('image');
-                $destinationPath = 'images/projects/';
-                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-                $thumbnail->move($destinationPath, $filename);
-                $data->image = $filename;
-                $data->save();
-            }
-//
-//            if ($request->hasFile('image')) {
-//                UploadImage2('images/projects/', 'image', $data, $request->file('image'));
-//            }
+            $data->update($request->all());
         }
 
             return $this->respondSuccess($data, trans('message.User updated successfully'));
@@ -179,13 +128,10 @@ class ProjectController extends Controller
         public
         function destroy($id)
         {
-            $data = Project::find($id);
+            $data = Menu::find($id);
 
             $data->delete();
 
             return $this->respondSuccess(null, __('data deleted successfully.'));
-
-
-
         }
     }
