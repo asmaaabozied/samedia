@@ -19,4 +19,9 @@ class Project extends Model
     ];
 
     protected $hidden=['updated_at'];
+
+    public function images()
+    {
+        return $this->HasMany(Images::class, 'project_id');
+    }
 }

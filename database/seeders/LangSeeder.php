@@ -129,8 +129,21 @@ class LangSeeder extends Seeder
             ['id' => 92, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 92, 'page_type' => 'services'],
             ['id' => 93, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 93, 'page_type' => 'services'],
 
-
-
+            ['id' => 94, 'value' => json_encode(['ar' => '', 'en' => 'Embark on a Journey of Discovery and Exploration']), 'item_name' => 'home', 'item_id' => 94, 'page_type' => 'home'],
+            ['id' => 95, 'value' => json_encode(['ar' => '', 'en' => 'Unleashing the Power of Visual Storytelling for Property Marketing and Website Development.']), 'item_name' => 'home', 'item_id' => 95, 'page_type' => 'home'],
+            ['id' => 96, 'value' => json_encode(['ar' => '', 'en' => 'Comprehensive visual solutions']), 'item_name' => 'home', 'item_id' => 96, 'page_type' => 'home'],
+            ['id' => 97, 'value' => json_encode(['ar' => '', 'en' => 'We provide a one-stop solution for real estate photography, marketing, and professional website design and development.']), 'item_name' => 'home', 'item_id' => 96, 'page_type' => 'home'],
+            ['id' => 98, 'value' => json_encode(['ar' => '', 'en' => 'Timely delivery and support']), 'item_name' => 'home', 'item_id' => 97, 'page_type' => 'home'],
+            ['id' => 99, 'value' => json_encode(['ar' => '', 'en' => 'We value deadlines and provide ongoing support to address any questions or concerns']), 'item_name' => 'home', 'item_id' => 98, 'page_type' => 'home'],
+            ['id' => 100, 'value' => json_encode(['ar' => '', 'en' => 'High-quality photography']), 'item_name' => 'home', 'item_id' => 99, 'page_type' => 'home'],
+            ['id' => 101, 'value' => json_encode(['ar' => '', 'en' => 'Our skilled photographers capture stunning images that showcase the unique features and aesthetics of properties.']), 'item_name' => 'home', 'item_id' => 101, 'page_type' => 'home'],
+            ['id' => 102, 'value' => json_encode(['ar' => '', 'en' => 'Innovative marketing strategies']), 'item_name' => 'home', 'item_id' => 102, 'page_type' => 'home'],
+            ['id' => 103, 'value' => json_encode(['ar' => '', 'en' => 'We employ cutting-edge marketing techniques, including virtual tours and targeted online advertising, to maximize property exposure.']), 'item_name' => 'home', 'item_id' => 103, 'page_type' => 'home'],
+            ['id' => 104, 'value' => json_encode(['ar' => '', 'en' => 'Customized website design']), 'item_name' => 'home', 'item_id' => 104, 'page_type' => 'home'],
+            ['id' => 105, 'value' => json_encode(['ar' => '', 'en' => 'Our talented team creates customized websites that are visually appealing, user-friendly, and tailored to your specific branding and needs.']), 'item_name' => 'home', 'item_id' => 105, 'page_type' => 'home'],
+        
+            ['id' => 106, 'value' => json_encode(['ar' => 'الروابط', 'en' => 'Links']), 'item_name' => 'field1', 'item_id' => 106, 'page_type' => 'footer'],
+            ['id' => 107, 'value' => json_encode(['ar' => 'تواصل معنا', 'en' => 'Contact us']),'item_name' => 'field2', 'item_id' => 107, 'page_type' => 'footer']
 
         ];
 

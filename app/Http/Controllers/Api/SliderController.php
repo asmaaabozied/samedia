@@ -46,7 +46,7 @@ class SliderController extends Controller
     {
 
         $rule = [
-            'image' => 'nullable', 'mimes:jpg,jpeg,png',
+            'image' => 'nullable',
             'name' => 'required',
             'description' => 'required',
 
@@ -63,7 +63,7 @@ class SliderController extends Controller
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
-
+            
 
             $data = Slider::create($request->except('image'));
             if ($request->hasFile('image')) {
@@ -74,9 +74,6 @@ class SliderController extends Controller
                 $data->image = $filename;
                 $data->save();
             }
-//            if ($request->hasFile('image')) {
-//                UploadImage2('images/sliders/', 'image', $data, $request->file('image'));
-//            }
 
             return $this->respondSuccess($data, trans('message.User register successfully.'));
 

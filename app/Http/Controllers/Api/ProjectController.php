@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Project;
-use App\Models\ProjectImage;
+use App\Models\Images;
 use Intervention\Image\Facades\Image;
 use App\Http\Resources\Projects;
 use App\Http\Controllers\Controller;
@@ -20,7 +20,7 @@ class ProjectController extends Controller
     {
 
 
-        $data =Projects::collection(Project::paginate(10));
+        $data = Project::with('images')->latest()->get();
 
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
 
@@ -44,8 +44,6 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-//        return $request;
-
         $rule = [
             'image' => 'nullable', 'mimes:jpg,jpeg,png',
             'name' => 'required',
@@ -64,9 +62,7 @@ class ProjectController extends Controller
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
-
-
-            $data = Project::create($request->except('image'));
+            $data = Project::create($request->except('image', 'images'));
             if ($request->image) {
                 $thumbnail = $request->file('image');
                 $destinationPath = 'images/projects/';
@@ -76,17 +72,18 @@ class ProjectController extends Controller
                 $data->save();
             }
 
-            if ($request->images){
+            if ($request->file('images')){
                 foreach($request->file('images') as $image){
                 $destinationPath = 'images/projects/';
                 $filename = time() . '.' . $image->getClientOriginalExtension();
                 $image->move($destinationPath, $filename);
                 $data_image = new ProjectImage();
                 $data_image->url = $filename;
+                $data_image->project_id = $data->id;
                 $data_image->save();
-                }
-
             }
+
+        }
 //            if ($request->hasFile('image')) {
 //                UploadImage2('images/projects/', 'image', $data, $request->file('image'));
 //            }
@@ -105,7 +102,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $data =new Projects(Project::find($id));
+        $data = Project::with('images')->find($id);
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
 
     }
@@ -152,7 +149,7 @@ class ProjectController extends Controller
         } else {
 
 
-            $data->update($request->except('image'));
+            $data->update($request->except('image','images'));
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
                 $destinationPath = 'images/projects/';
@@ -160,6 +157,19 @@ class ProjectController extends Controller
                 $thumbnail->move($destinationPath, $filename);
                 $data->image = $filename;
                 $data->save();
+            }
+
+            if ($request->file('images')){
+                foreach($request->file('images') as $image){
+                $destinationPath = 'images/projects/';
+                $filename = time() . '.' . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $filename);
+                $data_image = new ProjectImage();
+                $data_image->url = $filename;
+                $data_image->project_id = $data->id;
+                $data_image->save();
+                }
+
             }
 //
 //            if ($request->hasFile('image')) {

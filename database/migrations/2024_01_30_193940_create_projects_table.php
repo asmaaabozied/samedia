@@ -22,7 +22,7 @@ return new class extends Migration
             $table->json('client')->nullable();
             $table->json('project_type')->nullable();
             $table->json('duration')->nullable();
-            $table->string('live_url');
+            $table->string('live_url')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -20,7 +20,6 @@ class PermissionSeeder extends Seeder
         ];
 
 
-
         $maps = ['create', 'update', 'read', 'delete'];
 
         foreach ($models as $model) {

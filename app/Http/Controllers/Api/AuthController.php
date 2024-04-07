@@ -323,7 +323,7 @@ class AuthController extends Controller
 
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $user->image = asset('images/users/') . '/' . $user->image;
-            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone']);
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone','role_id']);
 
             return $this->respondSuccess($success, trans('message.User login successfully.'));
         } else {

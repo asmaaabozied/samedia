@@ -15,10 +15,11 @@ class Settings extends JsonResource
     public function toArray($request)
     {
         $header = $request->header('accept-language');
+        // dd($this->website_address);
         return [
             'id' => $this->id,
             'terms_conditions' => json_decode($this->terms_conditions),
-            'website_address' => json_decode($this->website_address),
+            'website_address' => $this->website_address,
             'description' => json_decode($this->description),
             'closing_message' => json_decode($this->closing_message),
             'email' => $this->email,
@@ -36,13 +37,7 @@ class Settings extends JsonResource
             'play_store' => $this->play_store,
             'time_difference' => $this->time_difference,
             'closing' => $this->closing,
-
-
-
-
             'created_at' => $this->created_at ?? ''
-
-
         ];
     }
 }

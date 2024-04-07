@@ -28,6 +28,7 @@ use App\Models\Invoice;    // HasMany
 use App\Models\Deposit;    // HasMany
 use App\Models\AccountType;    // HasMany
 use App\Models\Payment;    // HasMany
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -58,7 +59,8 @@ class User extends Authenticatable
         'device_token',
         'token',
         'isguest',
-        'type'
+        'type',
+        'role_id'
     ];
 
 
@@ -83,7 +85,10 @@ class User extends Authenticatable
     ];
 
 
-
+    public function permission()
+    {
+        return $this->belongsTo(Role::class);
+    }
 
 
 
