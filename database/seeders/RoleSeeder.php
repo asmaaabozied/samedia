@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use DB;
 
-class PermissionSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,22 +20,23 @@ class PermissionSeeder extends Seeder
     'sliders','teams','projects','services','settings', 'permissions', 'users'
         ];
 
+        DB::table('roles')->delete();
 
         $maps = ['create', 'update', 'read', 'delete'];
 
+        $permissions = array();
+
         foreach ($models as $model) {
-
-
             foreach ($maps as $map) {
-
-                Permission::create([
-
-                    'name' => $map . '_' . $model,
-                    'display_name' => $map . '_' . $model,
-                    'description' => $map . '_' . $model
-                ]);
-
+                array_push($permissions, $map . '_' . $model);
             }
         }
+
+        $langs = ['id' => 1,'name'=>'admin', 'display_name'=>'admin'];
+
+        $data = Role::create($langs);
+        $all_permissions = array_merge($permissions, []);
+        $data->syncPermissions($all_permissions);
+
     }
 }

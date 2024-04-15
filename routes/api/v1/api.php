@@ -16,6 +16,8 @@ Route::post('/updateProfile', 'App\Http\Controllers\Api\AuthController@updatePro
 
 
 Route::get('/listoflanguage', 'App\Http\Controllers\Api\AuthController@listoflanguage');
+Route::get('/users', 'App\Http\Controllers\Api\AuthController@listUsers');
+Route::get('/users/{id}', 'App\Http\Controllers\Api\AuthController@showUser');
 Route::put('/updatelanguage', 'App\Http\Controllers\Api\AuthController@updatelanguage');
 
 // end of new website

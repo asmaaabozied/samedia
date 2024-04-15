@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Project;
-use App\Models\Images;
-use Intervention\Image\Facades\Image;
+use App\Models\Image;
 use App\Http\Resources\Projects;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,7 +19,7 @@ class ProjectController extends Controller
     {
 
 
-        $data = Project::with('images')->latest()->get();
+        $data = Projects::collection(Project::with('images')->latest()->get());
 
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
 
@@ -72,21 +71,14 @@ class ProjectController extends Controller
                 $data->save();
             }
 
-            if ($request->file('images')){
-                foreach($request->file('images') as $image){
-                $destinationPath = 'images/projects/';
-                $filename = time() . '.' . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $filename);
-                $data_image = new ProjectImage();
-                $data_image->url = $filename;
-                $data_image->project_id = $data->id;
-                $data_image->save();
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $filename = time() . '.' . $image->getClientOriginalExtension();
+                    $image->move('images/projects/', $filename);
+                    $data->images()->create(['url' => $filename]);
+                    $data->save();
+                }
             }
-
-        }
-//            if ($request->hasFile('image')) {
-//                UploadImage2('images/projects/', 'image', $data, $request->file('image'));
-//            }
 
             return $this->respondSuccess($data, trans('message.User register successfully.'));
 
@@ -102,7 +94,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $data = Project::with('images')->find($id);
+        $data = new Projects( Project::with('images')->find($id));
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
 
     }
@@ -164,10 +156,11 @@ class ProjectController extends Controller
                 $destinationPath = 'images/projects/';
                 $filename = time() . '.' . $image->getClientOriginalExtension();
                 $image->move($destinationPath, $filename);
-                $data_image = new ProjectImage();
+                $data_image = new Image();
                 $data_image->url = $filename;
                 $data_image->project_id = $data->id;
                 $data_image->save();
+
                 }
 
             }

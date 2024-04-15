@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->json('name')->nullable();
             $table->json('description')->nullable();
-            $table->string('image')->nullable();
+            $table->string('media')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -110,7 +110,7 @@ class RoleController extends Controller
     {
         $data = Role::find($id);
         $rule = [
-            'name' => 'required|unique:roles',
+            'name' => 'required',
             'description' => 'nullable',
 
         ];
@@ -126,14 +126,13 @@ class RoleController extends Controller
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
-
-
             $data->update($request->except('permissions'));
-
             if ($request->has('permissions')) {
-                $all_permissions = array_merge($request->permissions, []);
+                $all_permissions = array_merge($request->permissions, []);            
+                $data->permissions()->detach();            
                 $data->syncPermissions($all_permissions);
-
+            } else {
+                $data->permissions()->detach();
             }
         }
 

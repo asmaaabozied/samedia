@@ -20,11 +20,14 @@ class Projects extends JsonResource
             'name_lan' => $this->name,
             'description_lan' => $this->description,
             "image" => asset('images/projects') . "/" . $this->image,
-            'date_of_birth' => $this->date_of_birth,
+            'date' => $this->date_of_birth,
             'client' => $this->client,
             'project_type' => $this->project_type,
             'duration' => $this->duration,
-            'created_at' => $this->created_at ?? ''
+            'created_at' => $this->created_at ?? '',
+            'live_link' => $this->live_link,
+            'images'=> $this->images,
+            'server_url'=> asset('images/projects') 
         ];
     }
 }

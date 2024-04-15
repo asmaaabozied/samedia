@@ -32,6 +32,11 @@ class AuthController extends Controller
 
     }
 
+    public function listUsers(){
+        $data = User::where('id', '!=', Auth::id())->get();
+        return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
+    }
+
     public function listoflanguage(Request $request)
     {
 
@@ -542,4 +547,19 @@ class AuthController extends Controller
             return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showUser($id)
+    {
+        $data = User::find($id);
+        return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
+
+    }
+
+    
 }

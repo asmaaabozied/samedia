@@ -19,7 +19,7 @@ class Sliders extends JsonResource
             'id' => $this->id,
             'name_lan' => $this->name,
             'description_lan' => $this->description,
-            "image" => asset('images/sliders') . "/" . $this->image,
+            "media" => asset('uploads') . "/" . $this->media,
             'created_at' => $this->created_at ?? ''
         ];
     }

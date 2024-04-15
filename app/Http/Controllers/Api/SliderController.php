@@ -43,44 +43,38 @@ class SliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-
-        $rule = [
-            'image' => 'nullable',
-            'name' => 'required',
-            'description' => 'required',
-
-        ];
-
-        $customMessages = [
-            'required' => __('validation.attributes.required'),
-        ];
-
-        $validator = validator()->make($request->all(), $rule, $customMessages);
-
-        if ($validator->fails()) {
-
-            return $this->respondError('Validation Error.', $validator->errors(), 400);
-
-        } else {
-            
-
-            $data = Slider::create($request->except('image'));
-            if ($request->hasFile('image')) {
-                $thumbnail = $request->file('image');
-                $destinationPath = 'images/sliders/';
-                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-                $thumbnail->move($destinationPath, $filename);
-                $data->image = $filename;
-                $data->save();
-            }
-
-            return $this->respondSuccess($data, trans('message.User register successfully.'));
-
-
+   {
+    $rule = [
+        'media' => 'nullable|file|mimes:jpeg,jpg,png,mp4,mov,avi,wmv', // Accept both image and video file types
+        'name' => 'required',
+        'description' => 'required',
+    ];
+    
+    $customMessages = [
+        'required' => __('validation.attributes.required'),
+        'mimes' => __('validation.attributes.mimes', ['values' => 'jpeg, jpg, png, mp4, mov, avi, wmv']), // Provide custom message for file type validation
+    ];
+    
+    $validator = validator()->make($request->all(), $rule, $customMessages);
+    
+    if ($validator->fails()) {
+        return $this->respondError('Validation Error.', $validator->errors(), 400);
+    } else {
+        $data = Slider::create($request->except('media'));
+    
+        if ($request->hasFile('media')) { // Check for 'media' file upload
+            $mediaFile = $request->file('media');
+            $destinationPath = 'uploads/'; // Define the destination path for both image and video uploads
+            $filename = time() . '.' . $mediaFile->getClientOriginalExtension();
+            $mediaFile->move($destinationPath, $filename);
+            $data->media = $filename; // Store the file name in 'media' field
+            $data->save();
         }
+    
+        return $this->respondSuccess($data, trans('message.User register successfully.'));
     }
-
+    
+   }
     /**
      * Display the specified resource.
      *

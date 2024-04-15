@@ -19,7 +19,7 @@ class MenuController extends Controller
     {
 
 
-        $data = Menus::collection(Menu::paginate(10));
+        $data = Menus::collection(Menu::orderBy('order', 'asc')->paginate(10));
 
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
 

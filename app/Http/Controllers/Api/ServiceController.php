@@ -92,6 +92,7 @@ class ServiceController extends Controller
     public function show($id)
     {
         $data =new Services(Service::find($id));
+        // dd($data);
         return $this->respondSuccess($data, trans('message.data retrieved successfully.'));
     }
 
