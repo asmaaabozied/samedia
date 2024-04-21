@@ -109,10 +109,8 @@ class SliderController extends Controller
     {
         $data = Slider::find($id);
         $rule = [
-            'image' => 'nullable', 'mimes:jpg,jpeg,png',
             'name' => 'required',
-            'description' => 'required',
-
+            'description' => 'required'
         ];
 
         $customMessages = [
@@ -126,21 +124,15 @@ class SliderController extends Controller
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
-
-
-            $data->update($request->except('image'));
-            if ($request->hasFile('image')) {
-                $thumbnail = $request->file('image');
-                $destinationPath = 'images/sliders/';
-                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-                $thumbnail->move($destinationPath, $filename);
-                $data->image = $filename;
+            $data->update($request->except('media'));
+            if ($request->hasFile('media')) { // Check for 'media' file upload
+                $mediaFile = $request->file('media');
+                $destinationPath = 'uploads/'; // Define the destination path for both image and video uploads
+                $filename = time() . '.' . $mediaFile->getClientOriginalExtension();
+                $mediaFile->move($destinationPath, $filename);
+                $data->media = $filename; // Store the file name in 'media' field
                 $data->save();
             }
-
-//            if ($request->hasFile('image')) {
-//                UploadImage2('images/sliders/', 'image', $data, $request->file('image'));
-//            }
 
         }
 
