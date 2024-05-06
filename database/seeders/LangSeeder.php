@@ -16,29 +16,17 @@ class LangSeeder extends Seeder
      */
     public function run()
     {
-
-
         DB::table('langs')->delete();
-
         $langs = [
-
-
             ['id' => 1, 'value' => json_encode(['ar' => 'معلومات عنا', 'en' => 'About Us']), 'item_name' => 'title1', 'item_id' => 1, 'page_type' => 'about-us'],
-
             ['id' => 2, 'value' => json_encode(['ar' => ' نحن ملتزمون بتحقيق رضا العملاء وتقديم حلول مبتكرة وفعالة لتلبية احتياجاتهم', 'en' => 'We are committed to achieving customer satisfaction & delivering innovative & effective solutions to meet their needs']), 'item_name' => 'title2', 'item_id' => 2, 'page_type' => 'about-us'],
-
             ['id' => 3, 'value' => json_encode(['ar' => ' قصتنا', 'en' => 'OUR STORY']), 'item_name' => 'content1', 'item_id' => 3, 'page_type' => 'about-us'],
-
-
             ['id' => 4, 'value' => json_encode(['ar' => ' رحلة مليئة بالمغامرات تعكس روح الإبداع وإحداث التأثير', 'en' => 'An Adventurous Journey Reflecting the Spirit of Creativity and Making an Impact']), 'item_name' => 'content2', 'item_id' => 4, 'page_type' => 'about-us'],
             ['id' => 5, 'value' => json_encode(['ar' => ' تطور', 'en' => 'EVOLUTION']), 'item_name' => 'content3', 'item_id' => 5, 'page_type' => 'about-us'],
             ['id' => 6, 'value' => json_encode(['ar' => ' تطورت ساميديا من مجرد فكرة إلى شركة مرخصة في عام 2023، مما أظهر التزامها بالتميز في سوق الإمارات العربية المتحدة.', 'en' => 'Samedia evolved from an idea into a licensed company in 2023, showcasing its commitment to excellence in the UAE market.']), 'item_name' => 'content4', 'item_id' => 6, 'page_type' => 'about-us'],
-
             ['id' => 7, 'value' => json_encode(['ar' => ' عضو فريقنا الموهوب ينتظر الخادم.', 'en' => 'Our talented team member waiting to server.']), 'item_name' => 'content5', 'item_id' => 7, 'page_type' => 'about-us'],
             ['id' => 8, 'value' => json_encode(['ar' => ' فريقنا', 'en' => 'OUR TEAM']), 'item_name' => 'content6', 'item_id' => 8, 'page_type' => 'about-us'],
-
             ['id' => 9, 'value' => json_encode(['ar' => ' اتصل بنا اليوم للحصول على تصوير عقاري من الدرجة الأول', 'en' => 'Contact us today for top-notch real estate photography that highlights the unique features of your property and attracts eager buyers.']), 'item_name' => 'description', 'item_id' => 9, 'page_type' => 'about-us'],
-
             ['id' => 10, 'value' => json_encode(['ar' => ' تؤاصل معنا', 'en' => 'Contact Us']), 'item_name' => 'contactus', 'item_id' => 10, 'page_type' => 'about-us'],
             ['id' => 11, 'value' => json_encode(['ar' => ' تؤاصل معنا', 'en' => 'Contact Us']), 'item_name' => 'contact-us', 'item_id' => 11, 'page_type' => 'contact-us'],
             ['id' => 12, 'value' => json_encode(['ar' => '  يسعى فريقنا لتقديم خدمة عملاء ممتازة', 'en' => 'Our team strives to deliver excellent customer service ']), 'item_name' => 'contact-us', 'item_id' => 12, 'page_type' => 'contact-us'],
@@ -71,10 +59,8 @@ class LangSeeder extends Seeder
             ['id' => 39, 'value' => json_encode(['ar' => 'كتالوج العقارات 1 ', 'en' => ' Listing catalogue real esrate 1']), 'item_name' => 'header_Portfolio', 'item_id' => 39, 'page_type' => 'Portfolio'],
             ['id' => 40, 'value' => json_encode(['ar' => 'يُستخدم بشكل شائع في مسابقة الطباعة الرسومية بسبب صناعة النشر لمعاينة النماذج المرئية الخفيفة ', 'en' => 'Commonly used in the graphic prit quis due publishing indust for previewing lightlyvisual mockups']), 'item_name' => 'description_Portfolio', 'item_id' => 40, 'page_type' => 'Portfolio'],
             ['id' => 41, 'value' => json_encode(['ar' => 'كتالوج العقارات 2 ', 'en' => ' Listing catalogue real esrate 2']), 'item_name' => 'header2_Portfolio', 'item_id' => 41, 'page_type' => 'Portfolio'],
-
             ['id' => 42, 'value' => json_encode(['ar' => 'بطاقة بريدية جذابة لـ Home Finder ', 'en' => ' Compelling Home Finder postcard']), 'item_name' => 'description_Portfolio', 'item_id' => 42, 'page_type' => 'Portfolio'],
             ['id' => 43, 'value' => json_encode(['ar' => 'اتصل بنا اليوم للحصول على تصوير عقاري من الدرجة الأولى يسلط الضوء على الميزات الفريدة لممتلكاتك ويجذب المشترين المتحمسين', 'en' => ' Contact Us today for top- notch real estate photography that highlights the unique features of your property and attracts eager buyers']), 'item_name' => 'description2_Portfolio', 'item_id' => 43, 'page_type' => 'Portfolio'],
-
             ['id' => 44, 'value' => json_encode(['ar' => 'محفظة ', 'en' => ' Portfolio']), 'item_name' => 'SitePortfolio', 'item_id' => 44, 'page_type' => 'Portfolio'],
             ['id' => 45, 'value' => json_encode(['ar' => 'محفظة ', 'en' => ' Portfolio']), 'item_name' => 'SitePortfolio', 'item_id' => 45, 'page_type' => 'Portfolio'],
             ['id' => 46, 'value' => json_encode(['ar' => 'نحن نضمن تقديم الخدمة التي تلبي احتياجاتك وتتجاوز توقعاتك ', 'en' => ' we ensure to delivers as service that meets your needs and exceeds your expections']), 'item_name' => 'title1SitePortfolio', 'item_id' => 46, 'page_type' => 'SitePortfolio'],
@@ -85,7 +71,6 @@ class LangSeeder extends Seeder
             ['id' => 51, 'value' => json_encode(['ar' => 'شريكك الإبداعي لهذه القائمة أو المشروع وما يليه', 'en' => 'your creative partner for this listing or project and the next']), 'item_name' => 'description3SitePortfolio', 'item_id' => 51, 'page_type' => 'SitePortfolio'],
             ['id' => 52, 'value' => json_encode(['ar' => 'فنية استثنائية في كل صورة', 'en' => 'exceptional artistry in every photo']), 'item_name' => 'description4SitePortfolio', 'item_id' => 52, 'page_type' => 'SitePortfolio'],
             ['id' => 53, 'value' => json_encode(['ar' => 'دعنا نأخذك في رحلة تصوير استثنائية', 'en' => 'let us take you on an exceptional photography jounery']), 'item_name' => 'description4SitePortfolio', 'item_id' => 53, 'page_type' => 'SitePortfolio'],
-
             ['id' => 54, 'value' => json_encode(['ar' => 'ثق بأفضل خبراء التصوير والتسويق العقاري في الخليج.', 'en' => "Trust the Bay's Best Real Estate Photography and Marketing Experts."]), 'item_name' => 'home', 'item_id' => 54, 'page_type' => 'home'],
             ['id' => 55, 'value' => json_encode(['ar' => 'فهو ملزم وما لم ينال المتعة التي متاعب الحقيقة هي ألم رفض قبول الألم. لأنه سوف ينتقد نفسه هنا لكونه مفيدا إلى حد ما.', 'en' => 'Tenetur eum et nisi suscipit voluptatem quae. Molestias veritatis incidunt sunt est dolore dolorem assumenda recusandae. Aliquid expedita esse ipsum hic reprehenderit enim.']), 'item_name' => 'home', 'item_id' => 55, 'page_type' => 'home'],
             ['id' => 56, 'value' => json_encode(['ar' => 'خدماتنا', 'en' => 'OUR SERVICES']), 'item_name' => 'home', 'item_id' => 56, 'page_type' => 'home'],
@@ -103,7 +88,6 @@ class LangSeeder extends Seeder
             ['id' => 67, 'value' => json_encode(['ar' => 'التسويق عبر الإنترنت', 'en' => 'ONLINE MARKETING']), 'item_name' => 'home', 'item_id' => 67, 'page_type' => 'home'],
             ['id' => 68, 'value' => json_encode(['ar' => 'قم بإلقاء الضوء على علامتك التجارية بنقرة واحدة', 'en' => 'Illuminate Your Brand with a Single Click']), 'item_name' => 'home', 'item_id' => 68, 'page_type' => 'home'],
             ['id' => 69, 'value' => json_encode(['ar' => 'استراتيجيات تسويق قوية تحقق نتائج استثنائية، وتسويقًا بارعًا عبر الإنترنت يضعك في المقدمة. يمكن أن تساعدك خدمة التسويق عبر الإنترنت لدينا في إنشاء استراتيجية تسويق رقمية شاملة مصممة خصيصًا لتلبية احتياجات عملك. يمكننا مساعدتك في تحديد القنوات المناسبة للوصول إلى جمهورك المستهدف وإنشاء محتوى جذاب يلقى صدى لديهم.', 'en' => 'Powerful Marketing Strategies Delivering Exceptional Results, Masterful Online Marketing that Puts You at the Forefront. Our online marketing service can help you create a comprehensive digital marketing strategy that is tailored to your business needs. We can help you identify the right channels to reach your target audience and create engaging content that resonates with them.']), 'item_name' => 'home', 'item_id' => 69, 'page_type' => 'home'],
-
             ['id' => 70, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 70, 'page_type' => 'services'],
             ['id' => 71, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 71, 'page_type' => 'services'],
             ['id' => 72, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 72, 'page_type' => 'services'],
@@ -128,7 +112,6 @@ class LangSeeder extends Seeder
             ['id' => 91, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 91, 'page_type' => 'services'],
             ['id' => 92, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 92, 'page_type' => 'services'],
             ['id' => 93, 'value' => json_encode(['ar' => 'الخدمات', 'en' => 'Services']), 'item_name' => 'services', 'item_id' => 93, 'page_type' => 'services'],
-
             ['id' => 94, 'value' => json_encode(['ar' => '', 'en' => 'Embark on a Journey of Discovery and Exploration']), 'item_name' => 'home', 'item_id' => 94, 'page_type' => 'home'],
             ['id' => 95, 'value' => json_encode(['ar' => '', 'en' => 'Unleashing the Power of Visual Storytelling for Property Marketing and Website Development.']), 'item_name' => 'home', 'item_id' => 95, 'page_type' => 'home'],
             ['id' => 96, 'value' => json_encode(['ar' => '', 'en' => 'Comprehensive visual solutions']), 'item_name' => 'home', 'item_id' => 96, 'page_type' => 'home'],
@@ -141,9 +124,15 @@ class LangSeeder extends Seeder
             ['id' => 103, 'value' => json_encode(['ar' => '', 'en' => 'We employ cutting-edge marketing techniques, including virtual tours and targeted online advertising, to maximize property exposure.']), 'item_name' => 'home', 'item_id' => 103, 'page_type' => 'home'],
             ['id' => 104, 'value' => json_encode(['ar' => '', 'en' => 'Customized website design']), 'item_name' => 'home', 'item_id' => 104, 'page_type' => 'home'],
             ['id' => 105, 'value' => json_encode(['ar' => '', 'en' => 'Our talented team creates customized websites that are visually appealing, user-friendly, and tailored to your specific branding and needs.']), 'item_name' => 'home', 'item_id' => 105, 'page_type' => 'home'],
-        
             ['id' => 106, 'value' => json_encode(['ar' => 'الروابط', 'en' => 'Links']), 'item_name' => 'field1', 'item_id' => 106, 'page_type' => 'footer'],
-            ['id' => 107, 'value' => json_encode(['ar' => 'تواصل معنا', 'en' => 'Contact us']),'item_name' => 'field2', 'item_id' => 107, 'page_type' => 'footer']
+            ['id' => 107, 'value' => json_encode(['ar' => 'تواصل معنا', 'en' => 'Contact us']),'item_name' => 'field2', 'item_id' => 107, 'page_type' => 'footer'],
+            
+            ['id' => 108, 'value' => json_encode(['ar' => 'التاريخ', 'en' => 'Date']),'item_name' => 'field2', 'item_id' => 108, 'page_type' => 'project'],
+            ['id' => 109, 'value' => json_encode(['ar' => 'العميل', 'en' => 'Client']),'item_name' => 'field3', 'item_id' => 109, 'page_type' => 'project'],
+            ['id' => 110, 'value' => json_encode(['ar' => 'نوع المشروع', 'en' => 'Project type']),'item_name' => 'field4', 'item_id' => 110, 'page_type' => 'project'],
+            ['id' => 111, 'value' => json_encode(['ar' => 'المدة', 'en' => 'Duration']),'item_name' => 'field5', 'item_id' => 111, 'page_type' => 'project'],
+            ['id' => 112, 'value' => json_encode(['ar' => 'التفاصيل', 'en' => 'Details']),'item_name' => 'field1', 'item_id' => 112, 'page_type' => 'project'],
+            ['id' => 113, 'value' => json_encode(['ar' => 'الذهاب لمعرض الصور', 'en' => 'Check Gallery']),'item_name' => 'field6', 'item_id' => 113, 'page_type' => 'project']
 
         ];
 
