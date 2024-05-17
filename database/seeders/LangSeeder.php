@@ -132,7 +132,13 @@ class LangSeeder extends Seeder
             ['id' => 110, 'value' => json_encode(['ar' => 'نوع المشروع', 'en' => 'Project type']),'item_name' => 'field4', 'item_id' => 110, 'page_type' => 'project'],
             ['id' => 111, 'value' => json_encode(['ar' => 'المدة', 'en' => 'Duration']),'item_name' => 'field5', 'item_id' => 111, 'page_type' => 'project'],
             ['id' => 112, 'value' => json_encode(['ar' => 'التفاصيل', 'en' => 'Details']),'item_name' => 'field1', 'item_id' => 112, 'page_type' => 'project'],
-            ['id' => 113, 'value' => json_encode(['ar' => 'الذهاب لمعرض الصور', 'en' => 'Check Gallery']),'item_name' => 'field6', 'item_id' => 113, 'page_type' => 'project']
+            ['id' => 113, 'value' => json_encode(['ar' => 'الذهاب لمعرض الصور', 'en' => 'Check Gallery']),'item_name' => 'field6', 'item_id' => 113, 'page_type' => 'project'],
+            ['id' => 114, 'value' => json_encode(['ar' => '', 'en' => 'Anytime consulting']), 'item_name' => 'home', 'item_id' => 113, 'page_type' => 'home'],
+            ['id' => 115, 'value' => json_encode(['ar' => '', 'en' => 'Get in touch with us and let our professional photographers capture the essence of your real estate with stunning visuals']), 'item_name' => 'home', 'item_id' => 114, 'page_type' => 'home'],
+            ['id' => 116, 'value' => json_encode(['ar' => 'الأسم الأول', 'en' => 'First name']), 'item_name' => 'contactField', 'item_id' => 115, 'page_type' => 'contactField'],
+            ['id' => 117, 'value' => json_encode(['ar' => 'اسم العائلة', 'en' => 'Last name']), 'item_name' => 'contactField', 'item_id' => 116, 'page_type' => 'contactField'],
+            ['id' => 118, 'value' => json_encode(['ar' => 'البريد الإلكتروني', 'en' => 'Email']), 'item_name' => 'contactField', 'item_id' => 117, 'page_type' => 'contactField'],
+            ['id' => 119, 'value' => json_encode(['ar' => 'رسالتك', 'en' => 'Your message']), 'item_name' => 'contactField', 'item_id' => 118, 'page_type' => 'contactField'],
 
         ];
 
